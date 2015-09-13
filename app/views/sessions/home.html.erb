@@ -22,17 +22,18 @@
 		</div>
 
 		<%- @stocks.each do |stock|%>
+		<%- data_stock = StockQuote::Stock.quote(stock.symbol) %>
 		<div class='col-md-3'>			
-			<%= StockQuote::Stock.quote(stock.symbol).name %>
+			<%= data_stock.name %>
 		</div>
 		<div class='col-md-3'>
-			<%= StockQuote::Stock.quote(stock.symbol).percent_change %>
+			<%= data_stock.percent_change %>
 		</div>
 		<div class='col-md-3'>
-			<%= StockQuote::Stock.quote(stock.symbol).change_percent_change %>
+			<%= data_stock.change_percent_change %>
 		</div>
 		<div class='col-md-3'>
-			<%= StockQuote::Stock.quote(stock.symbol).last_trade_date %>
+			<%= data_stock.last_trade_date %>
 		</div>
 		<%- end %>
 	</div>
