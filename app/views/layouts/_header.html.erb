@@ -11,9 +11,18 @@
 			</div>
 		</div>
 		<div class='col-md-2 header-buttons'>
+			
 			<div class="btn-group">
-				<%= link_to "Logout", controller: 'sessions', action: 'logout'%>
+				<%= 
+					if session[:user_id] != nil
+						link_to "Logout", controller: 'sessions', action: 'logout'
+					else
+						link_to "Login",  controller: 'sessions', action: 'login'
+					end 
+				%>
 			</div>
+
 		</div>
 	</div>
 </div>
+

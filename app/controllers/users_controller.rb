@@ -9,12 +9,12 @@ class UsersController < ApplicationController
     @user = User.create(user_params)
     if @user.save
       flash[:notice] = "You signed up successfully"
-      flash[:color]= "valid"
+      flash[:color]= "Valid"
     else
       flash[:notice] = "Form is invalid"
-      flash[:color]= "invalid"
+      flash[:color]= "Invalid"
     end
-    render "new"
+    redirect_to controller: 'sessions', action:"login"
   end
 
   private
