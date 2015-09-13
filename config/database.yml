@@ -1,0 +1,20 @@
+defaults: &defaults
+  adapter: mysql2
+  encoding: utf8mb4
+  collation: utf8mb4_unicode_ci
+  username: root
+  password: password
+  host: 127.0.0.1
+  port: 3306
+
+development:
+  <<: *defaults
+  database: stock_development
+
+test:
+  <<: *defaults
+  database: stock_test
+
+production:
+  <<: *defaults
+  database: stock_production
