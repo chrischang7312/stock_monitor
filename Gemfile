@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'twilio-ruby', '~> 4.2.1'
 gem 'stock_quote'
 gem 'bootstrap-sass', '3.2.0.0'
 gem 'pry'
