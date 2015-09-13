@@ -1,18 +1,19 @@
 <% @page_title = "UserAuth | Signup" %>
 <div class="Sign_Form">
   <h1>Sign Up</h1>
-  <%= form_for @user, url: {action: "create"} do |f| %>
+  <%= form_for @user, url: {action: "create"}, :html => { :id => 'signup-form' } do |f| %>
     <p> Username:</br> <%= f.text_field :username%> </p>
     <p> Email:</br> <%= f.text_field :email%> </p>
+    <p> Telephone:</br> <%= f.telephone_field :phone_number%> </p>
     <p> Password:</br> <%= f.password_field :password%></p>
     <p> Password Confirmation:</br> <%= f.password_field :password_confirmation%> </p>
     <%= f.submit :Signup %>
-  <% end %>
-  <% if @user.errors.any? %>
+  <%- end %>
+  <%- if @user.errors.any? %>
     <ul class="Signup_Errors">
-    <% for message_error in @user.errors.full_messages %>
+    <%- for message_error in @user.errors.full_messages %>
       <li>* <%= message_error %></li>
-    <% end %>
+    <%- end %>
     </ul>
-  <% end %>
+  <%- end %>
 </div>

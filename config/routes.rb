@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root :to => "sessions#login"
   match "signup", :to => "users#new", via: [:get, :post]
+  match 'users/create' => 'users#create', via: [:get, :post]
   match "login", :to => "sessions#login", via: [:get, :post]
   match "logout", :to => "sessions#logout", via: [:get, :post]
   match "home", :to => "sessions#home", via: [:get, :post]
