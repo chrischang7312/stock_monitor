@@ -6,42 +6,33 @@
 		<input type="submit" value="Add Stock">
 	</form>
 -->
-	<div class='row'>
-		<div class='col-md-3'>			
-			<h4>
-				Name
-			</h4>
-		</div>
-		<div class='col-md-3'>
-			<h4>
-				Percent Change
-			</h4>
-		</div>
-		<div class='col-md-3'>
-			<h4>
-				Delta Percent 
-			</h4>
-		</div>
-		<div class='col-md-3'>
-			<h4>
-				Last Trade Date
-			</h4>
-		</div>
-
-		<%- @stocks.each do |stock|%>
-		<%- data_stock = StockQuote::Stock.quote(stock.symbol) %>
-		<div class='col-md-3'>			
-			<%= data_stock.name %>
-		</div>
-		<div class='col-md-3'>
-			<%= data_stock.percent_change %>
-		</div>
-		<div class='col-md-3'>
-			<%= data_stock.change_percent_change %>
-		</div>
-		<div class='col-md-3'>
-			<%= data_stock.last_trade_date %>
-		</div>
-		<%- end %>
-	</div>
+	<table class='table table_stocks'>
+		<thead class='table_stocks_header'>
+			<tr class='table_stocks_hr'>
+				<th class='col-md-3'>Name</th>
+				<th class='col-md-3'>Percent Change</th>
+				<th class='col-md-3'>Delta Percent</th>
+				<th class='col-md-3'>Last Trade Date</th>
+			</tr>
+		</thead>
+		<tbody class='table_stocks_body'>
+			<%- @stocks.each do |stock|%>
+			<%- data_stock = StockQuote::Stock.quote(stock.symbol) %>
+			<tr class='table_stocks_br' id="<%= data_stock.name%>">
+				<td class='col-md-3'><%= data_stock.name %></td>
+				<td class='col-md-3'><%= data_stock.percent_change %></td>
+				<td class='col-md-3'><%= data_stock.change_percent_change %></td>
+				<td class='col-md-3'><%= data_stock.last_trade_date %></td>
+				<td class='table_stocks_delete' data-symbol-name="<%= data_stock.name %>">
+					<a href='javascript:void(0)'>X</a>
+				</td>
+			</tr>
+			<%- end %>
+		</tbody>
+	</table>
 </div>
+
+<script type='text/javascript'>
+	$(document).ready(function(){
+	})
+</script>
