@@ -1,2 +1,39 @@
-<%= @data %>
-hello world
+<div class='container' >
+	<div class='row' >
+		<div class='col-md-3'>			
+			<h4>
+				Name
+			</h4>
+		</div>
+		<div class='col-md-3'>
+			<h4>
+				Percent Change
+			</h4>
+		</div>
+		<div class='col-md-3'>
+			<h4>
+				Delta Percent 
+			</h4>
+		</div>
+		<div class='col-md-3'>
+			<h4>
+				Last Trade Date
+			</h4>
+		</div>
+
+		<%- @stocks.each do |stock|%>
+		<div class='col-md-3'>			
+			<%= StockQuote::Stock.quote(stock.symbol).name %>
+		</div>
+		<div class='col-md-3'>
+			<%= StockQuote::Stock.quote(stock.symbol).percent_change %>
+		</div>
+		<div class='col-md-3'>
+			<%= StockQuote::Stock.quote(stock.symbol).change_percent_change %>
+		</div>
+		<div class='col-md-3'>
+			<%= StockQuote::Stock.quote(stock.symbol).last_trade_date %>
+		</div>
+		<%- end %>
+	</div>
+</div>

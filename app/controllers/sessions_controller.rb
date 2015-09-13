@@ -3,6 +3,8 @@ class SessionsController < ApplicationController
   before_filter :authenticate_user, :only => [:home, :profile, :setting]
   # before_filter :save_login_state, :only => [:login, :login_attempt]
   def home
+    user = User.find_by_id(session[:user_id])
+    @stocks = user.stocks
     @data = StockQuote::Stock.quote("YHOO")
     @data = @data.to_json
     render 'home'
