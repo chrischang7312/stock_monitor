@@ -9,6 +9,7 @@ class StocksController < ApplicationController
 		if data.ask.blank?
 			flash[:notice] = "Symbol is Invalid"
       		flash[:color]= "invalid"
+      		redirect_to controller: 'stocks', action:"new"
 		else
 			changein_percent = data.changein_percent.to_f 
 			@stock = Stock.new(symbol: stock, last_updated: Time.now, user_id: session[:user_id])
