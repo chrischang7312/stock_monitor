@@ -1,0 +1,7 @@
+<div class="Stock_Form">
+  <h1>Create New Stock</h1>
+  <%= form_for @stock, url: {action: "create"} do |f| %>
+    <p> Stock Symbol:</br> <%= f.text_field :symbol%> </p>
+    <%= f.submit :Create %>
+  <%- end %>
+</div>

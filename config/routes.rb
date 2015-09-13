@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   root :to => "sessions#login"
+  match 'stock/new' => 'stocks#new', via: [:get, :post]
+  match 'stock/create' => 'stocks#create', via: [:get, :post]
   match "signup", :to => "users#new", via: [:get, :post]
   match 'users/create' => 'users#create', via: [:get, :post]
   match "login", :to => "sessions#login", via: [:get, :post]
