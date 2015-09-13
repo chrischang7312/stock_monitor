@@ -4,6 +4,7 @@ class SessionsController < ApplicationController
   # before_filter :save_login_state, :only => [:login, :login_attempt]
   def home
     @data = StockQuote::Stock.quote("YHOO")
+    @data = @data.to_json
     render 'home'
   end
 
