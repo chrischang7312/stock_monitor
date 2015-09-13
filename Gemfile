@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'yahoo-finance'
+gem 'stock_quote'
 gem 'protected_attributes'
 gem 'bcrypt-ruby', :require => 'bcrypt'
 # Bundle edge Railgem 'bcrypt-ruby', :require => 'bcrypt's instead: gem 'rails', github: 'rails/rails'
