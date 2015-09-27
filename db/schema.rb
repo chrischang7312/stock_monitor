@@ -13,20 +13,23 @@
 
 ActiveRecord::Schema.define(version: 20150913074654) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "stocks", force: :cascade do |t|
-    t.integer  "user_id",      limit: 4
-    t.string   "symbol",       limit: 255
+    t.integer  "user_id"
+    t.string   "symbol"
     t.date     "last_updated"
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "username",           limit: 255
-    t.string   "email",              limit: 255
-    t.string   "encrypted_password", limit: 255
-    t.string   "phone_number",       limit: 255
-    t.string   "salt",               limit: 255
+    t.string   "username"
+    t.string   "email"
+    t.string   "encrypted_password"
+    t.string   "phone_number"
+    t.string   "salt"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
